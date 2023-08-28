@@ -8,5 +8,25 @@
         "id": 2,
         "email": "ali@12",
         "password": "$2b$12$oiRAR.cpyAw5ZxVMgICMFuDuC11Ubi.5Jbp6xl9PnO4WBxbsXXG8."
+    },
+    {
+        "id": 3,
+        "email": "S@12",
+        "password": "$2b$12$efzxEv.HovjdNHvaahkdO.877bWYIjv2g4gSVxnANjdidj5RvYqeS"
+    },
+    {
+        "id": 4,
+        "email": "n@12",
+        "password": "$2b$12$rISsL6LPfsrdjwurbQWIyuaVWFjpjAjnFNTWe/Kcgdnh4CXIADJry"
+    },
+    {
+        "id": 5,
+        "email": "f@12",
+        "password": "$2b$12$fdZKAxTiFm/FhBPm7L.nNeL5OY/8ZaZ8UbbcT4zeMyOmwFv4g.NgW"
+    },
+    {
+        "id": 6,
+        "email": "e@12",
+        "password": "$2b$12$xTdxW4h9LxRyZu7hgJIvleARDf0tpXEWk50tnR9xq..8L7RpE7MtG"
     }
 ]
