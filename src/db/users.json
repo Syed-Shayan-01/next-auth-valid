@@ -1,22 +1,12 @@
 [
     {
         "id": 1,
-        "email": "a@a.com",
-        "password": "$2b$12$YuY4traXc4DmrQMM.VhiWePVQsoKRYlRWSn8LdOBlqxzDvLoDVyLa"
+        "email": "ali@123",
+        "password": "$2b$12$1pUtl58TBv.Oz8I3zQTdFuVC3XT5SIxfi49MHxGGNsneF0lvYL16a"
     },
     {
         "id": 2,
-        "email": "shayansyed712@gmail.com",
-        "password": "$2b$12$grda4MUcjrQRIN6LXVEyn.zZmq1SRwQFmwY2Xmwj2VLlRhE0xHIgW"
-    },
-    {
-        "id": 3,
-        "email": "ali@123",
-        "password": "$2b$12$QtDjOTd5KxYBpUMclJHypu/t8rU8WFWfsu91cZzG5wWunLv0a9J5e"
-    },
-    {
-        "id": 4,
-        "email": "shayan@123",
-        "password": "$2b$12$lWJ6CMt5F/pqsLwdtiJrYu1NbGO7JVUDXQooIqJAP2gZs8ZvGTK3C"
+        "email": "ali@12",
+        "password": "$2b$12$oiRAR.cpyAw5ZxVMgICMFuDuC11Ubi.5Jbp6xl9PnO4WBxbsXXG8."
     }
 ]
