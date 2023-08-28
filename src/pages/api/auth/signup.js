@@ -2,7 +2,7 @@ import { registerUser } from "@/service/user";
 
 export default async function handler (req, res) {
     if(req.method !== "POST"){
-        res.status(400).json({});
+        res.status(404).json({});
     }
 
     const {email, password} = req.body;
