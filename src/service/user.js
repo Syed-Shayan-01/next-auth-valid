@@ -33,9 +33,9 @@ export const registerUser = async (email, password) => {
 
 export const updateUserPassword = async (email, password) => {
     const users = getAllUsers();
-    const userEmail = users.findIndex((user) => user.email.toLowerCase() === email.toLowerCase());
+    const user = getByEmail(email)
     const hashedPassword = await bcrypt.hash(password, 12);
-    users[userEmail].password = hashedPassword;
+    user.password = hashedPassword;
 
     fs.writeFileSync(filePath, JSON.stringify(users));
     return { email }
