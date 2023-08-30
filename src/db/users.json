@@ -1,17 +1,7 @@
 [
     {
         "id": 1,
-        "email": "ali@12",
-        "password": "$2b$12$KqrDHmxr2rmWQYZ1E6PJWuW0fn842vuyIHHZ.6ukvYsaPQtsK4bai"
-    },
-    {
-        "id": 2,
-        "email": "S@12",
-        "password": "$2b$12$fH5MZrIBXnGdbKJIQvTRIeVj68YSgxNviIZnZhMkD.G7tm8DPQdYW"
-    },
-    {
-        "id": 3,
-        "email": "a@12",
-        "password": "$2b$12$4zMsOSZ6j1Bkzo3nVnh1AOwTsgvhxAzQxugjLtbfCTzCZdyGeJNPm"
+        "email": "ali@123",
+        "password": "$2b$12$yIlkDbZqfcX6STJ.wydCAO30JdgBlXxHKWX3wQToLH43Een0tkrYG"
     }
 ]

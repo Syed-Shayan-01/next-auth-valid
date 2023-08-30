@@ -13,9 +13,6 @@ export default function SignIn() {
         password,
       });
       console.log(data);
-      if (data.ok) {
-        router.replace("/profile");
-      }
     } catch (err) {
       console.log(err.message);
     }

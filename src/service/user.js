@@ -4,15 +4,16 @@ import bcrypt from 'bcrypt';
 
 const filePath = path.join(process.cwd(), 'src', 'db', 'users.json');
 
-
 export const getAllUsers = () => {
     const users = fs.readFileSync(filePath);
-    return JSON.parse(users)
+    return JSON.parse(users);
 }
+
 export const getByEmail = (email) => {
     const users = getAllUsers();
     return users.find((user) => user.email.toLowerCase() === email.toLowerCase());
 }
+
 export const verifyPassword = async (password, hashedPassword) => {
     const isValid = await bcrypt.compare(password, hashedPassword);
     return isValid;
@@ -22,11 +23,20 @@ export const registerUser = async (email, password) => {
     const users = getAllUsers();
     const found = getByEmail(email);
     if (found) {
-        throw new Error('user exists')
+        throw new Error('User already exists');
     }
     const hashedPassword = await bcrypt.hash(password, 12);
     users.push({ id: users.length + 1, email, password: hashedPassword });
     fs.writeFileSync(filePath, JSON.stringify(users));
-    return { email }
+    return { email };
 }
 
+export const updateUserPassword = async (email, password) => {
+    const users = getAllUsers();
+    const userEmail = users.findIndex((user) => user.email.toLowerCase() === email.toLowerCase());
+    const hashedPassword = await bcrypt.hash(password, 12);
+    users[userEmail].password = hashedPassword;
+
+    fs.writeFileSync(filePath, JSON.stringify(users));
+    return { email }
+};

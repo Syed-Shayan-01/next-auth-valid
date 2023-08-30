@@ -19,7 +19,6 @@ export const authOptions = {
         if (!isValid) {
           throw new Error("incorrect password");
         }
-
         return { email };
       },
     }),

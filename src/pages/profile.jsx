@@ -2,38 +2,38 @@ import { BsPencilSquare } from "react-icons/bs";
 import { getSession } from "next-auth/react";
 import { useState } from "react";
 const profile = () => {
-  const [oldPassword, setOldPassword] = useState("");
+  const [OldPassword, setOldPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
   const [RepeatPassword, setRepeatPassword] = useState("");
+  const handleSubmit = async (e, email, password) => {
+    e.preventDefault();
 
-  const handleSubmit = async () => {
-    // Verify that new password and repeat password match
-    if (ConfirmPassword !== RepeatPassword) {
-      setMessage("New passwords do not match.");
-      return;
-    }
+    if (ConfirmPassword === RepeatPassword && RepeatPassword !== OldPassword) {
+      try {
+        const response = await fetch("/api/auth/signup", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email, // Use the authenticated user's email
+            RepeatPassword: password,
+          }),
+        });
 
-    // Perform a request to your API to change the password
-    try {
-      const response = await fetch("", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ oldPassword, ConfirmPassword }),
-      });
+        const data = await response.json();
 
-      const data = await response.json();
-
-      if (response.ok) {
-        setMessage("Password changed successfully.");
-      } else {
-        setMessage(data.message || "Password change failed.");
+        if (response.ok) {
+          console.log(data.message);
+        } else {
+          console.error(data.message);
+        }
+      } catch (error) {
+        console.error("An error occurred:", error);
       }
-    } catch (error) {
-      setMessage("An error occurred while changing the password.");
     }
   };
+
   return (
     <>
       <div>
@@ -49,7 +49,7 @@ const profile = () => {
           </span>
         </div>
         {/* Change Password Input */}
-        <h2 className="font-bold text-xl mt-10">Password</h2>
+        <h2 className="font-bold text-xl mt-10">Change Password</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <div className="my-4">
@@ -69,7 +69,7 @@ const profile = () => {
                 type="password"
                 name="changePassword"
                 className="w-80 p-2 rounded-md border-gray-500 border-2"
-                placeholder="Enter the Confirm password"
+                placeholder="Enter the Repeat password"
                 onChange={(e) => {
                   setConfirmPassword(e.target.value);
                 }}

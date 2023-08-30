@@ -10,9 +10,9 @@ export const Form = ({ signIn, onFormSubmit }) => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
 
-    // if (password.length < 6) {
-    //   return alert("Please Password type is > 6");
-    // }
+    if (password.length < 4) {
+      return alert("Please Password type is > 6");
+    }
     onFormSubmit(email, password);
   };
 
@@ -57,7 +57,7 @@ export const Form = ({ signIn, onFormSubmit }) => {
             Already have account?
             <Link
               className="font-bold text-[#0382c3] mx-2"
-              href={"/auth/signin"}
+              href={"/auth/login"}
             >
               Log in
             </Link>{" "}

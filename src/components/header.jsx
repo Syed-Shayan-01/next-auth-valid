@@ -19,7 +19,7 @@ export const Header = () => {
         {!session ? (
           <Link
             className="shadow-md py-2 px-6 border-[1px] border-black rounded-full font-semibold hover:bg-[#efefef]"
-            href={"/auth/signin"}
+            href={"/auth/login"}
           >
             Log in
           </Link>
