@@ -3,5 +3,10 @@
         "id": 1,
         "email": "ali@123",
         "password": "$2b$12$yIlkDbZqfcX6STJ.wydCAO30JdgBlXxHKWX3wQToLH43Een0tkrYG"
+    },
+    {
+        "id": 2,
+        "email": "s@s.com",
+        "password": "$2b$12$CxkkHPgFKwUsTGHYQK4Ote6ulBDPZG.I7wFJd2asq2jmScCTBiYku"
     }
 ]

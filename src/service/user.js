@@ -14,6 +14,12 @@ export const getByEmail = (email) => {
     return users.find((user) => user.email.toLowerCase() === email.toLowerCase());
 }
 
+
+export const getById = (id) => {
+    const users = getAllUsers();
+    return users.find((user) => user.id === Number(id));
+}
+
 export const verifyPassword = async (password, hashedPassword) => {
     const isValid = await bcrypt.compare(password, hashedPassword);
     return isValid;
@@ -33,10 +39,9 @@ export const registerUser = async (email, password) => {
 
 export const updateUserPassword = async (email, password) => {
     const users = getAllUsers();
-    const user = getByEmail(email)
+    const user =  getByEmail(email)
     const hashedPassword = await bcrypt.hash(password, 12);
     user.password = hashedPassword;
-
     fs.writeFileSync(filePath, JSON.stringify(users));
     return { email }
 };

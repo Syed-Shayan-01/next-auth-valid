@@ -7,7 +7,6 @@ const profile = () => {
   const [RepeatPassword, setRepeatPassword] = useState("");
   const handleSubmit = async (e, email, password) => {
     e.preventDefault();
-
     if (ConfirmPassword === RepeatPassword && RepeatPassword !== OldPassword) {
       try {
         const response = await fetch("/api/auth/signup", {
@@ -16,17 +15,17 @@ const profile = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email: email, // Use the authenticated user's email
-            RepeatPassword: password,
+            email,
+            password
           }),
         });
 
-        const data = await response.json();
+        const data2 = await response.text();
 
         if (response.ok) {
-          console.log(data.message);
+          console.log(data2.message);
         } else {
-          console.error(data.message);
+          console.error(data2.message);
         }
       } catch (error) {
         console.error("An error occurred:", error);
@@ -54,8 +53,8 @@ const profile = () => {
           <div>
             <div className="my-4">
               <input
-                type="password"
-                name="password"
+                type="email"
+                name="email"
                 onFormSubmit
                 className="w-80 p-2 rounded-md border-gray-500 border-2"
                 placeholder="Enter the Old password"
@@ -103,7 +102,7 @@ export const getServerSideProps = async ({ req }) => {
   if (!session) {
     return {
       redirect: {
-        destination: "/auth/signin",
+        destination: "/auth/login",
         parmanent: false,
       },
     };

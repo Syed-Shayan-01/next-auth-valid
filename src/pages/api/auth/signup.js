@@ -13,7 +13,7 @@ export default async function handler(req, res) {
             return res.status(400).json({ message: err.message });
         }
     } else if (req.method === "PUT") {
-        const {email,  password } = req.body;
+        const { email, password } = req.body;
         try {
             updateUserPassword(email, password); // Call your function to update the password
             return res.status(200).json({ message: "Password updated successfully" });
